@@ -1,0 +1,62 @@
+<div class="row">
+
+  <div class="span6" ng-controller="Resource">
+
+    <div class="well">
+      <form>
+        <fieldset>
+          <legend>ITunes Search</legend>
+          <label>Media Type</label>
+          <select ng-model="mediaType">
+              <option value="all" selected>All</option>
+              <option value="musicVideo" selected>Video</option>
+              <option value="movie">Movie</option>
+              <option value="musicTrack">Music</option>
+              <option value="podcast">Podcast</option>
+              <option value="tvShow">TV Show</option>
+          </select>
+          <label>Search for</label>
+          <input id="in" type="text" ng-model="searchTerm"> 
+          <div>
+            <button type="submit" class="btn" ng-click="doSearch()">Search</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+          <th>Cover</th>
+          <th>Track</th>
+          <th>Type</th>
+          <th>Artist</th>
+          <th>Collection</th>
+          <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in mediaResults">
+          <td><a href="{{item.previewUrl}}"><img ng-src="{{item.artworkUrl60}}"/></a></td>
+          <td>{{(item.trackName != null) && item.trackName || item.collectionName}}</td>
+          <td>{{item.artistName}}</td>
+          <td>{{item.collectionName}}</td>
+          <td>{{item.trackPrice}}</td>
+          <td>{{item.collectionPrice}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="span3">
+    <h6>DESCRIPTION:</h6>
+    <p>
+      queries a remote REST API (itunes) 
+    </p>
+    <h6>TODOS:</h6>
+    <ul class="no-bullet">
+    </ul>
+  </div>
+
+</div>

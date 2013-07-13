@@ -1,0 +1,47 @@
+<!-- Phone Controller -->
+
+<div class="row">
+
+  <div class="span6" ng-controller="ComplexForm">
+    
+    <div class="well">
+      <fieldset>
+        <legend>Input:</legend>
+        <input type="text" ng-model="newPhone.name" placeholder="phone">
+        <input type="text" ng-model="newPhone.snippet" placeholder="snippet">
+        <button type="submit" class="btn" ng-click="addPhone()">Add Phone</button>
+      </fieldset>
+    </div>
+  
+    <div class="well">
+      <fieldset>
+        <legend>Search:</legend>
+        <input type="text" ng-model="query.name" placeholder="search text">
+      </fieldset>
+    </div>
+  
+    <table class="table table-striped">
+      <tbody>
+      <tr ng-repeat="phone in phones | filter:query | orderBy:'name'">
+          <td>{{phone.name | uppercase}}</td>
+          <td>{{phone.snippet}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="span3">
+    <h6>DESCRIPTION:</h6>
+    <p>
+      A more complex form linked to a controller which adds the input to an array in memory, and then allows searching via a filter
+    </p>
+    <h6>TODOS:</h6>
+    <ul class="no-bullet">
+      <li>
+        add validation
+      </li>
+    </ul>
+  </div>
+
+</div>
