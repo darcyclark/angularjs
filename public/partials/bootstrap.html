@@ -1,0 +1,32 @@
+<div class="row">
+
+  <div class="span6" ng-controller="Bootstrap">
+
+      <button class="btn" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+      <br />
+      <br />
+      <div collapse="isCollapsed">
+        <div class="well well-large">Some content</div> 
+      </div>
+
+      <hr>
+
+      <pre>Model: {{selected| json}}</pre>
+      <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue">      
+
+  </div>
+
+  <div class="span3">
+    <h6>DESCRIPTION:</h6>
+    <p>
+      Bootstrap integration
+    </p>
+    <h6>DEPENDENCIES:</h6>
+    <ul class="no-bullet">
+      <li>
+        <a href="http://angular-ui.github.io/bootstrap/">http://angular-ui.github.io/bootstrap/</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
