@@ -7,5 +7,5 @@ You need to either serve this code using Deployd, or serve the public directory 
 
 Using Python you can create an ad-hoc http server like this :
 
-cd /opt/angularjs/angularjs/public
+cd /opt/angularjs/angularjs/public  
 python -m SimpleHTTPServer
