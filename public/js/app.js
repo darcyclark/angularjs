@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngResource', 'ui.bootstrap', 'myApp.directives', 'myApp.controllers','myApp.services']);
+var myApp = angular.module('myApp', ['ngResource', 'firebase', 'ui.bootstrap', 'myApp.directives', 'myApp.controllers','myApp.services']);
 
 // Routes
 
@@ -33,6 +33,11 @@ myApp.config(function($routeProvider) {
       {
         controller: 'Deployd',
         templateUrl: 'partials/deployd.html'
+      })
+    .when('/firebase',
+      {
+        controller: 'Firebase',
+        templateUrl: 'partials/firebase.html'
       })
     .when('/bootstrap',
       {

@@ -97,6 +97,33 @@ function Deployd($scope, WidgetService) {
   }
 }
 
+c.controller('Firebase', ['$scope', 'angularFire',
+  function Firebase($scope, angularFire) {
+    var url = 'https://darcy-widgets.firebaseio.com/';
+    var promise = angularFire(url, $scope, 'widgets', []);
+    $scope.newWidget = {};
+    promise.then(function() {
+      startWatch($scope);
+    });
+    $scope.reset = function () { resetForm(); }
+    var resetForm = function () {
+      $scope.searchTerm = undefined;
+      //$scope.widgets = WidgetService.query();
+    }
+  }
+]);
+ 
+function startWatch($scope) {
+  $scope.add = function() {
+    console.log($scope.newWidget);
+    $scope.widgets.push($scope.newWidget);
+    $scope.newWidget = '';
+  }
+  $scope.deleteWidget = function(widget) {
+    $scope.widgets.splice($scope.widgets.indexOf(widget), 1);
+  };
+}
+
 function Bootstrap($scope) {
   // Collapse
   $scope.isCollapsed = false;
